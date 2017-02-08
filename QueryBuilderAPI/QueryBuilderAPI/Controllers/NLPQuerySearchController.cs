@@ -13,6 +13,7 @@ namespace QueryBuilderAPI.Controllers
         [HttpPost]
         public HttpResponseMessage Search(NLPQuerySearch searchIns)
         {
+            //test
             //TODO: To allow users to save the query like JIRA query.
             return new HttpResponseMessage() { StatusCode = HttpStatusCode.OK };
         }
