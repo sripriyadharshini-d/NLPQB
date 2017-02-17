@@ -5,8 +5,8 @@ using System.Web;
 
 namespace QueryBuilderAPI.Models
 {
-    public class NLPQuerySearch
+    public class SearchModel
     {
-        public string searchString { get; set; }
+        public string SearchText { get; set; }
     }
 }

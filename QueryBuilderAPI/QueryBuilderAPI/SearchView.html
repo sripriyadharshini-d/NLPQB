@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Query Builder with Natural Language Processing</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="Content/main.css" media="screen" />
+</head>
+<body>
+
+    <!-- BEGIN: Sticky Header -->
+    <div id="header_container">
+        <div id="header">
+            QB Interface
+        </div>
+    </div>
+    <!-- END: Sticky Header -->
+    <!-- BEGIN: Page Content -->
+    <div id="container">
+        <div id="content">
+            <form>
+                <input type="text" maxlength="1500" class="search" placeholder="Query here..." id="searchControl" required />
+                <input type="button" id="Search" class="button" value="Query" onclick="search();" />
+            </form>
+            <div id="ResponseView" class="ResponseView">
+                response comes here...
+            </div>
+        </div>
+    </div>
+    <!-- END: Page Content -->
+    <!-- BEGIN: Sticky Footer -->
+    <div id="footer_container">
+        <div id="footer">
+            <p>&copy; 2017; Query Builder Interface</p>
+        </div>
+    </div>
+    <!-- END: Sticky Footer -->
+
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
+    <script src="Scripts/Search.js"></script>
+</body>
+</html>
