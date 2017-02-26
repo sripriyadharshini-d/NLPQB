@@ -8,9 +8,15 @@ namespace QueryProcessorEngine
 {
     class Tokenizer
     {
-        internal string[] Tokenize(string text)
+        internal List<Token> Tokenize(string text)
         {
-            return text.Split(' ');
+            StringTokenizer stokenizer = new StringTokenizer(text);
+            var tokenList = new List<Token>();
+            do
+            {
+                tokenList.Add(stokenizer.Next());
+            } while (tokenList.Last().Kind != "EOF");
+            return tokenList;
         }
     }
 }
