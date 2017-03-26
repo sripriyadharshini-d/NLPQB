@@ -40,9 +40,9 @@ namespace QueryProcessorEngine
 		}
 		
 		public string POSTag
-		{
-			get { return _POStag; }
-			set { _POStag = value; }
+        {
+            get { return _POStag; }
+            set { _POStag = value; }
+        }
 	}
-
 }
