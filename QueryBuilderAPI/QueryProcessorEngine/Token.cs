@@ -8,6 +8,7 @@ namespace QueryProcessorEngine
 		int column;
 		string value;
 		string kind;
+		string _POStag;
 
 		public Token(string kind, string value, int line, int column)
 		{
@@ -37,6 +38,11 @@ namespace QueryProcessorEngine
 		{
 			get { return value; }
 		}
+		
+		public string POSTag
+		{
+			get { return _POStag; }
+			set { _POStag = value; }
 	}
 
 }
