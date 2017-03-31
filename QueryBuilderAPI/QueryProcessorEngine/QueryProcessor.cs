@@ -11,6 +11,10 @@ namespace QueryProcessorEngine
         public string Process(string text)
         {
             //var tokenList = new Tokenizer().Tokenize(text);
+            var tokenList = new POSTagger().TagPartsOfSpeech(text);
+            tokenList = new NamedEntityRecognizer().RecoginizeNamedEntites(tokenList);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(new { Result = text });
+            //var tokenList = new Tokenizer().Tokenize(text);
             //tokenList = new NamedEntityRecognizer().RecoginizeNamedEntites(tokenList);
             //return Newtonsoft.Json.JsonConvert.SerializeObject(new { Result = text });
             try
