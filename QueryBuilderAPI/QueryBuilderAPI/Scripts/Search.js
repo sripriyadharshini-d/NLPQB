@@ -17,23 +17,40 @@ function search() {
         statusCode: {
             200: function (response) {
                 debugger;
-                //var jsonResponse = JSON.parse(response);
-                $("#ResponseView").html(response['Result']);
+                var jsonResponse = JSON.stringify(response);
+                
+                var txt = "";
+                    txt += "<table border='1'> <tr>"
+                for (var columnHeader in response[0]) {
+                    txt += "<td>" + columnHeader + "</td>"
+                }
+                txt += "</tr>"
+
+                txt += "<tr>"
+                for (var columnHeader in response[0]) {
+                    txt += "<td>" + response[0][columnHeader] + "</td>"
+                }
+                txt += "</tr>"
+
+                txt += "</table>"
+                $("#dataGrid").html(txt);
             },
             201: function (response) {
-                $("#ResponseView").html(response);
+                var jsonResponse = JSON.stringify(response);
+                $("#dataGrid").html(jsonResponse);
             },
             400: function (response) {
-                $("#ResponseView").html('<span style="color:Red;">Error While Saving Outage Entry Please Check</span>', function () { });
+                $("#dataGrid").html('<span style="color:Red;">Error While Saving Outage Entry Please Check</span>', function () { });
             },
             404: function (response) {
-                $("#ResponseView").html('<span style="color:Red;">Error While Saving Outage Entry Please Check</span>', function () { });
+                $("#dataGrid").html('<span style="color:Red;">Error While Saving Outage Entry Please Check</span>', function () { });
             }
         },
         success: function (response) {
             debugger;
             //var jsonResponse = JSON.parse(response);
-            $("#ResponseView").html(response['Result']);
+            var jsonResponse = JSON.stringify(response);
+            $("#ResponseView").html(jsonResponse);
         }
     });
 }
