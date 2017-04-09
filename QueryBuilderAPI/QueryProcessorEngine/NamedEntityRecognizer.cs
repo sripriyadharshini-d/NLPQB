@@ -9,7 +9,7 @@ namespace QueryProcessorEngine
 {
     class NamedEntityRecognizer
     {
-        public List<Token> RecoginizeNamedEntites(List<Token> tokenList)
+        public void RecoginizeNamedEntites(List<Token> tokenList)
         {
             var appConfig = new AppSettingsReader();
             var jarRootPath = appConfig.GetValue("NERjarRootPath", typeof(string)).ToString();
@@ -31,7 +31,6 @@ namespace QueryProcessorEngine
                     //do nothing. This is to filter normal word kind of tokens which are not named entities
                 }
             }
-            return tokenList;
         }
     }
 }

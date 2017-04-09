@@ -4,7 +4,6 @@ $(document).ready(function () {
 
 });
 function search() {
-    debugger;
     var query = $('#searchControl').val();
     var searchModel = { SearchText: query };
     $.ajax({
@@ -16,24 +15,31 @@ function search() {
         dataType: 'json',
         statusCode: {
             200: function (response) {
-                debugger;
+                //debugger;
                 var jsonResponse = JSON.stringify(response);
-                
                 var txt = "";
+                if (response.length > 0) {
                     txt += "<table border='1'> <tr>"
-                for (var columnHeader in response[0]) {
-                    txt += "<td>" + columnHeader + "</td>"
-                }
-                txt += "</tr>"
+                    for (var columnHeader in response[0]) {
+                        txt += "<td>" + columnHeader + "</td>"
+                    }
+                    txt += "</tr>"
 
-                txt += "<tr>"
-                for (var columnHeader in response[0]) {
-                    txt += "<td>" + response[0][columnHeader] + "</td>"
+                    for (var iter = 0; iter < response.length; iter++) {
+                        txt += "<tr>"
+                        for (var columnHeader in response[iter]) {
+                            txt += "<td>" + response[iter][columnHeader] + "</td>"
+                        }
+                        txt += "</tr>"
+                    }
+                    txt += "</table>"
                 }
-                txt += "</tr>"
-
-                txt += "</table>"
+                else
+                {
+                    txt = "No results found in the database";
+                }
                 $("#dataGrid").html(txt);
+                $("#dataGrid").className = "ResponseView";
             },
             201: function (response) {
                 var jsonResponse = JSON.stringify(response);
@@ -47,7 +53,6 @@ function search() {
             }
         },
         success: function (response) {
-            debugger;
             //var jsonResponse = JSON.parse(response);
             var jsonResponse = JSON.stringify(response);
             $("#ResponseView").html(jsonResponse);
